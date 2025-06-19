@@ -23,6 +23,7 @@ java -version
 ZIPを展開
 
 ```
+cd tabula
 java -jar tabula.jar
 ```
 

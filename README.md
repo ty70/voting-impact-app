@@ -14,7 +14,7 @@ java -version
 
 ページ中段の「Download」ボタンから、以下を選択：
 
-* Linux: tabula.jar.zip
+● Linux: tabula.jar.zip
 
 ✅ Step 3：Tabulaを起動
 

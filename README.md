@@ -1,5 +1,7 @@
 🛠 Tabula 導入ガイド（2025年版）
 
+----
+
 ✅ Step 1：Javaがインストールされているか確認
 
 ● macOS/Linux:

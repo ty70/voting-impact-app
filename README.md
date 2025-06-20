@@ -1,60 +1,60 @@
-🛠 Tabula 導入ガイド（2025年版）
+🛠 Tabula Installation Guide (2025 Edition)
 
-----
+---
 
-✅ Step 1：Javaがインストールされているか確認
+✅ Step 1: Check if Java is Installed
 
 ● macOS/Linux:
+
 ```
 java -version
 ```
-→ Java version "1.8..." などと出ればOK。出なければJava公式サイトからダウンロードしてください。
 
-----
+→ If you see something like `Java version "1.8..."`, you're good to go. If not, download it from the official Java website.
 
-✅ Step 2：Tabulaをダウンロード
+---
 
-[公式サイト](https://tabula.technology/)
+✅ Step 2: Download Tabula
 
-ページ中段の「Download」ボタンから、以下を選択：
+[Official Website](https://tabula.technology/)
+
+Scroll to the middle of the page and click the "Download" button. Then choose:
 
 ● Linux: tabula.jar.zip
 
-----
+---
 
-✅ Step 3：Tabulaを起動
+✅ Step 3: Launch Tabula
 
 ● macOS/Linux:
 
-ZIPを展開
+Unzip the downloaded file:
 
 ```
 cd tabula
 java -jar tabula.jar
 ```
 
-→ ブラウザが開いて、http://127.0.0.1:8080 にアクセスされるはず。
+→ This should open your browser and navigate to [http://127.0.0.1:8080](http://127.0.0.1:8080) automatically.
 
-----
+---
 
-✅ Step 4：PDFを読み込んでCSVに変換
+✅ Step 4: Import a PDF and Convert to CSV
 
-[ファイルをアップロード] → sangiin21_3_13.pdf を選択
+Click \[Upload a File] and select `sangiin21_3_13.pdf`
 
-表があるページを選ぶ（たぶん1ページ目か2ページ目）
+Choose the page with the table (most likely page 1 or 2)
 
-表の範囲をマウスでドラッグ選択
+Drag and select the table area with your mouse
 
-抽出形式は「CSV」を選んで「Export」ボタンでダウンロード
+Choose "CSV" as the output format and click the "Export" button to download
 
-💡Tabulaは表の行・列が明確な場合の精度が抜群に高いです。
+💡Tabula works extremely well when the table rows and columns are clearly defined.
 
-----
+---
 
-✅ Step 5：整形と保存
+✅ Step 5: Clean Up and Save
 
-抽出されたCSVはExcelやPythonでそのまま使えます
+The extracted CSV can be used directly in Excel or Python
 
-列ズレや文字化けがあればUTF-8で再保存すればOK
-
-----
+If you encounter misaligned columns or garbled text, just re-save the file in UTF-8 format

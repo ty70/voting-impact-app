@@ -9,6 +9,10 @@ input/
 output/
 scripts/
 
+# tabula は無視
+tabula/
+tabula*
+
 # 他の一般的な Python 開発用無視リスト（推奨）
 __pycache__/
 *.pyc

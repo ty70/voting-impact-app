@@ -2,8 +2,8 @@ import pandas as pd
 import re
 
 # ステップ1: CSV読み込み
-# df = pd.read_csv("./input/tabula-sangiin2010_07_11.csv", encoding="utf-8", skip_blank_lines=False)
-df = pd.read_csv("./input/tabula-sangiin2007_07_29.csv", encoding="utf-8", skip_blank_lines=False)
+df = pd.read_csv("./input/tabula-sangiin2010_07_11.csv", encoding="utf-8", skip_blank_lines=False)
+# df = pd.read_csv("./input/tabula-sangiin2007_07_29.csv", encoding="utf-8", skip_blank_lines=False)
 # ステップ2: 都道府県ごとに候補者をマーク
 pref = None
 rows = []

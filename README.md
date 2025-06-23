@@ -16,11 +16,13 @@ Outputs prefectures where the vote gap is under the 1% threshold
 
 📁 File Structure
 
+```
 project_root/
 ├── input/
 │   └── tabula-sangiin2010_07_11.csv  # Input data (CSV)
 ├── analyze_votes.py                  # Main script
 └── README.md                         # This file
+```
 
 🔧 Requirements
 

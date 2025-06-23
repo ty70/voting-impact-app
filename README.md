@@ -1,60 +1,85 @@
-🛠 Tabula Installation Guide (2025 Edition)
+README: Reversible Prefecture Analysis Script
 
----
+This script is a Python tool that extracts electoral districts where a seat could have been reversed within a 1% vote margin, using CSV data from Japan's House of Councillors elections.
 
-✅ Step 1: Check if Java is Installed
+🧩 Overview
 
-● macOS/Linux:
+The script loads election data in CSV format (e.g., extracted from PDF using Tabula), and performs the following steps:
 
-```
-java -version
-```
+Extracts candidate election results for each prefecture
 
-→ If you see something like `Java version "1.8..."`, you're good to go. If not, download it from the official Java website.
+Extracts the "1% threshold" vote count per prefecture
 
----
+Calculates vote margin between winners and losers
 
-✅ Step 2: Download Tabula
+Outputs prefectures where the vote gap is under the 1% threshold
 
-[Official Website](https://tabula.technology/)
+📁 File Structure
 
-Scroll to the middle of the page and click the "Download" button. Then choose:
+project_root/
+├── input/
+│   └── tabula-sangiin2010_07_11.csv  # Input data (CSV)
+├── analyze_votes.py                  # Main script
+└── README.md                         # This file
 
-● Linux: tabula.jar.zip
+🔧 Requirements
 
----
+Python 3.x
 
-✅ Step 3: Launch Tabula
+pandas
 
-● macOS/Linux:
+pip install pandas
 
-Unzip the downloaded file:
+🚀 How to Run
 
-```
-cd tabula
-java -jar tabula.jar
-```
+python analyze_votes.py
 
-→ This should open your browser and navigate to [http://127.0.0.1:8080](http://127.0.0.1:8080) automatically.
+📝 Script Logic
 
----
+Step 1: Read CSV File
 
-✅ Step 4: Import a PDF and Convert to CSV
+df = pd.read_csv("./input/tabula-sangiin2010_07_11.csv", encoding="utf-8", skip_blank_lines=False)
 
-Click \[Upload a File] and select `sangiin21_3_13.pdf`
+Step 2: Extract Prefecture and 1% Threshold Votes
 
-Choose the page with the table (most likely page 1 or 2)
+If a row contains "（定数...）", it marks a new prefecture. The last number in the row is extracted as the 1% threshold.
 
-Drag and select the table area with your mouse
+Step 3: Candidate Data Processing
 
-Choose "CSV" as the output format and click the "Export" button to download
+Rows labeled with "当" (elected) or "落" (not elected) are extracted and linked to their corresponding prefecture.
 
-💡Tabula works extremely well when the table rows and columns are clearly defined.
+Vote counts are converted to numeric.
 
----
+Step 4: Identify Reversible Prefectures
 
-✅ Step 5: Clean Up and Save
+For each prefecture:
 
-The extracted CSV can be used directly in Excel or Python
+Compare the lowest vote-getting winner and highest vote-getting loser
 
-If you encounter misaligned columns or garbled text, just re-save the file in UTF-8 format
+If the vote gap is less than the 1% threshold, consider it potentially reversible and record it
+
+Step 5: Output Results
+
+Results are printed to standard output
+
+Optionally, save to CSV (commented out by default)
+
+# df_result.to_csv("reversible_prefectures.csv", index=False, encoding="utf-8-sig")
+
+📊 Sample Output
+
+   Prefecture  Bottom Winner  Votes (Winner)  Top Loser  Votes (Loser)  Vote Gap  1% Threshold
+0     Example        Yamada Taro        12458     Suzuki Hanako      12310      148       200
+
+📌 Notes
+
+You may need to adapt the script depending on the CSV file format.
+
+The 1% threshold must be explicitly present in the data.
+
+©️ Disclaimer
+
+Use this script at your own risk and in accordance with the terms of the original data source.
+
+Feel free to submit questions or suggestions!
+

@@ -1,16 +1,18 @@
 import pandas as pd
 import re
 
+columns = ['当落',	'候補者氏名',	'党派', 
+           '新前元別', '性別', '年齢', '職業',
+            '投票数',	'有権者数の1%の人数（四捨五入）']
+
 # ステップ1: CSV読み込み
-df = pd.read_csv("./input/tabula-sangiin2010_07_11.csv", encoding="utf-8", skip_blank_lines=False)
+df = pd.read_csv("./input/tabula-sangiin2016_07_10.csv", encoding="utf-8", skip_blank_lines=False, names=columns)
+# df = pd.read_csv("./input/tabula-sangiin2013_07_21.csv", encoding="utf-8", skip_blank_lines=False)
+# df = pd.read_csv("./input/tabula-sangiin2010_07_11.csv", encoding="utf-8", skip_blank_lines=False)
 # df = pd.read_csv("./input/tabula-sangiin2007_07_29.csv", encoding="utf-8", skip_blank_lines=False)
 # ステップ2: 都道府県ごとに候補者をマーク
 pref = None
 rows = []
-
-# one_percent = [
-# 46046,11591,11092,19083,9270,9662,16594,24259,16305,16278,58147,50455,106205,72946,19688,9033,9443,6535,7021,17583,16882,30767,58299,15039,11061,20989,70893,45429,11540,8485,4859,5939,15774,23263,12090,6588,8297,11979,6410,40941,6883,11774,14885,9906,9339,14004,10740
-# ]
 
 todouhuken = []
 one_percent = []

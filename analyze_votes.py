@@ -59,7 +59,7 @@ for key, group in df_cleaned.groupby("都道府県"):
         vote_gap = bottom_winner["投票数"] - top_loser["投票数"]
         threshold = to2per.get(key)
 
-        if pd.notna(threshold) and vote_gap < threshold:
+        if pd.notna(threshold) and vote_gap > 0 and vote_gap < threshold:
             results.append({
                 "都道府県": key,
                 "最下位当選者": bottom_winner["候補者氏名"],
